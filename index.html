@@ -4,8 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sunrise Christian School – Kadoma</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
+  @import url('data:text/css,');
+  :root {
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
   :root {
     --navy: #1a3a6b;
     --gold: #f5c518;
@@ -22,7 +26,7 @@
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: var(--white);
     color: var(--dark);
     overflow-x: hidden;
@@ -47,10 +51,10 @@
   }
   .nav-name {
     color: var(--gold);
-    font-family: 'Playfair Display', serif;
+    font-family: Georgia, 'Times New Roman', serif;
     font-size: 1.1rem; line-height: 1.15;
   }
-  .nav-name span { color: var(--white); font-size: .85rem; font-family: 'Nunito', sans-serif; font-weight: 600; display: block; }
+  .nav-name span { color: var(--white); font-size: .85rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 600; display: block; }
   .nav-links { display: flex; gap: 1.5rem; }
   .nav-links a {
     color: rgba(255,255,255,.85);
@@ -62,7 +66,7 @@
   .nav-cta {
     background: var(--gold); color: var(--navy);
     border: none; padding: .5rem 1.25rem;
-    border-radius: 50px; font-family: 'Nunito', sans-serif;
+    border-radius: 50px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 800; font-size: .9rem; cursor: pointer;
     transition: transform .15s, box-shadow .15s;
   }
@@ -103,7 +107,7 @@
     animation: fadeUp .6s ease both;
   }
   .hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: Georgia, 'Times New Roman', serif;
     font-size: clamp(2.5rem, 5vw, 4rem);
     color: var(--white); line-height: 1.1;
     margin-bottom: 1.25rem;
@@ -152,7 +156,7 @@
     animation: fadeUp .8s .15s ease both;
   }
   .enroll-year {
-    font-family: 'Playfair Display', serif;
+    font-family: Georgia, 'Times New Roman', serif;
     font-size: 4rem; color: var(--navy); line-height: 1;
   }
   .enroll-label {
@@ -186,7 +190,7 @@
     text-transform: uppercase; color: var(--sky); margin-bottom: .5rem;
   }
   .section-title {
-    font-family: 'Playfair Display', serif;
+    font-family: Georgia, 'Times New Roman', serif;
     font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--navy);
     margin-bottom: 1rem; line-height: 1.2;
   }
@@ -225,7 +229,7 @@
   .grade-card.ecd { background: linear-gradient(135deg, #e3f2fd, #90caf9); }
   .grade-card.primary { background: linear-gradient(135deg, #e8f5e9, #a5d6a7); }
   .grade-card .gc-icon { font-size: 3rem; margin-bottom: 1rem; }
-  .grade-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: .5rem; }
+  .grade-card h3 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: .5rem; }
   .grade-card p { color: #555; font-size: .95rem; }
 
   /* ── FEES ── */
@@ -245,7 +249,7 @@
   .fee-card.transport { background: var(--red); }
   .fee-card .fc-icon { font-size: 2.5rem; margin-bottom: 1rem; }
   .fee-card h3 { color: var(--white); font-size: 1rem; font-weight: 700; margin-bottom: .5rem; opacity: .9; }
-  .fee-card .fc-amount { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; }
+  .fee-card .fc-amount { color: var(--gold); font-family: Georgia, 'Times New Roman', serif; font-size: 2.5rem; font-weight: 900; }
   .fee-card.term .fc-amount,
   .fee-card.transport .fc-amount { color: var(--white); }
   .fee-card p { color: rgba(255,255,255,.7); font-size: .9rem; margin-top: .5rem; }
@@ -272,7 +276,7 @@
     background: var(--light); border-radius: 20px; padding: 2.5rem;
   }
   .enroll-form h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: Georgia, 'Times New Roman', serif;
     color: var(--navy); font-size: 1.5rem; margin-bottom: 1.5rem;
   }
   .form-group { margin-bottom: 1.1rem; }
@@ -284,7 +288,7 @@
   .form-group select {
     width: 100%; padding: .75rem 1rem;
     border: 2px solid #dde4f0; border-radius: 10px;
-    font-family: 'Nunito', sans-serif; font-size: .95rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: .95rem;
     color: var(--dark);
     transition: border-color .2s;
     outline: none;
@@ -295,7 +299,7 @@
     width: 100%; padding: .95rem;
     background: var(--navy); color: var(--gold);
     border: none; border-radius: 50px;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 800; font-size: 1rem; cursor: pointer;
     transition: background .2s, transform .15s;
     margin-top: .5rem;
