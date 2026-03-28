@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunrise Christian School – Kadoma</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a3a6b;
+    --gold: #f5c518;
+    --sky: #3a9bd5;
+    --green: #2e8b57;
+    --red: #d43f3f;
+    --white: #ffffff;
+    --light: #f0f6ff;
+    --dark: #0d1f3c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 64px;
+    box-shadow: 0 2px 16px rgba(0,0,0,.3);
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: .75rem;
+  }
+  .nav-logo {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--sky);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+  }
+  .nav-name {
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; line-height: 1.15;
+  }
+  .nav-name span { color: var(--white); font-size: .85rem; font-family: 'Nunito', sans-serif; font-weight: 600; display: block; }
+  .nav-links { display: flex; gap: 1.5rem; }
+  .nav-links a {
+    color: rgba(255,255,255,.85);
+    text-decoration: none; font-weight: 700; font-size: .9rem;
+    letter-spacing: .03em;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy);
+    border: none; padding: .5rem 1.25rem;
+    border-radius: 50px; font-family: 'Nunito', sans-serif;
+    font-weight: 800; font-size: .9rem; cursor: pointer;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245,197,24,.4); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--navy) 55%, var(--sky) 100%);
+    display: flex; align-items: center;
+    padding: 100px 2rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,197,24,.18) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -80px; left: -80px;
+    width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(58,155,213,.25) 0%, transparent 70%);
+  }
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(245,197,24,.18);
+    color: var(--gold); border: 1px solid rgba(245,197,24,.4);
+    padding: .35rem 1rem; border-radius: 50px;
+    font-size: .8rem; font-weight: 800; letter-spacing: .1em;
+    text-transform: uppercase; margin-bottom: 1.25rem;
+    animation: fadeUp .6s ease both;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--white); line-height: 1.1;
+    margin-bottom: 1.25rem;
+    animation: fadeUp .7s .1s ease both;
+  }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero-sub {
+    color: rgba(255,255,255,.8); font-size: 1.05rem; line-height: 1.7;
+    margin-bottom: 2rem;
+    animation: fadeUp .7s .2s ease both;
+  }
+  .hero-checks { list-style: none; margin-bottom: 2.5rem; animation: fadeUp .7s .3s ease both; }
+  .hero-checks li {
+    color: var(--white); padding: .4rem 0;
+    display: flex; align-items: center; gap: .75rem; font-weight: 600;
+  }
+  .hero-checks li::before {
+    content: '✓';
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--gold); color: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .75rem; font-weight: 900; flex-shrink: 0;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp .7s .4s ease both; }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: .85rem 2rem; border-radius: 50px;
+    font-weight: 800; font-size: 1rem; text-decoration: none;
+    box-shadow: 0 8px 24px rgba(245,197,24,.35);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(245,197,24,.45); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    border: 2px solid rgba(255,255,255,.5);
+    padding: .85rem 2rem; border-radius: 50px;
+    font-weight: 700; font-size: 1rem; text-decoration: none;
+    transition: border-color .2s, background .2s;
+  }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+
+  /* hero card */
+  .hero-card {
+    background: var(--white); border-radius: 24px;
+    padding: 2.5rem; box-shadow: 0 24px 60px rgba(0,0,0,.25);
+    animation: fadeUp .8s .15s ease both;
+  }
+  .enroll-year {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem; color: var(--navy); line-height: 1;
+  }
+  .enroll-label {
+    background: var(--gold); color: var(--navy);
+    font-size: 1.6rem; font-weight: 900; padding: .2rem .8rem;
+    display: inline-block; margin: .5rem 0;
+    border-radius: 6px;
+  }
+  .enroll-now { color: var(--sky); font-weight: 800; font-size: 1.1rem; margin-bottom: 1.5rem; }
+  .fee-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: .85rem 1rem; border-radius: 12px; margin-bottom: .75rem;
+    font-weight: 700;
+  }
+  .fee-reg { background: var(--light); color: var(--navy); }
+  .fee-term { background: var(--green); color: var(--white); font-size: 1rem; }
+  .fee-transport { background: var(--red); color: var(--white); }
+  .fee-row .amount { font-size: 1.1rem; font-weight: 800; }
+  .grade-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
+  .grade-tag {
+    background: var(--navy); color: var(--white);
+    padding: .4rem 1rem; border-radius: 50px;
+    font-weight: 800; font-size: .85rem;
+  }
+
+  /* ── SECTIONS SHARED ── */
+  section { padding: 5rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: .8rem; font-weight: 800; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--sky); margin-bottom: .5rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--navy);
+    margin-bottom: 1rem; line-height: 1.2;
+  }
+  .section-desc { color: #555; font-size: 1.05rem; line-height: 1.7; max-width: 620px; }
+
+  /* ── WHY US ── */
+  .why { background: var(--light); }
+  .features-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .feature-card {
+    background: var(--white); border-radius: 18px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 4px 20px rgba(26,58,107,.07);
+    border-top: 4px solid var(--sky);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .feature-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(26,58,107,.13); }
+  .feature-icon { font-size: 2.4rem; margin-bottom: 1rem; }
+  .feature-card h3 { color: var(--navy); font-size: 1.1rem; margin-bottom: .5rem; }
+  .feature-card p { color: #666; font-size: .95rem; line-height: 1.6; }
+
+  /* ── GRADES ── */
+  .grades-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .grade-card {
+    border-radius: 18px; padding: 2.5rem 1.5rem; text-align: center;
+    position: relative; overflow: hidden;
+    transition: transform .2s;
+  }
+  .grade-card:hover { transform: scale(1.03); }
+  .grade-card.toddlers { background: linear-gradient(135deg, #fff8e1, #ffe082); }
+  .grade-card.ecd { background: linear-gradient(135deg, #e3f2fd, #90caf9); }
+  .grade-card.primary { background: linear-gradient(135deg, #e8f5e9, #a5d6a7); }
+  .grade-card .gc-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .grade-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: .5rem; }
+  .grade-card p { color: #555; font-size: .95rem; }
+
+  /* ── FEES ── */
+  .fees-bg { background: var(--navy); }
+  .fees-bg .section-title { color: var(--white); }
+  .fees-bg .section-label { color: var(--gold); }
+  .fees-bg .section-desc { color: rgba(255,255,255,.7); }
+  .fees-cards {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .fee-card {
+    border-radius: 18px; padding: 2rem; text-align: center;
+  }
+  .fee-card.reg { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); }
+  .fee-card.term { background: var(--green); }
+  .fee-card.transport { background: var(--red); }
+  .fee-card .fc-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .fee-card h3 { color: var(--white); font-size: 1rem; font-weight: 700; margin-bottom: .5rem; opacity: .9; }
+  .fee-card .fc-amount { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; }
+  .fee-card.term .fc-amount,
+  .fee-card.transport .fc-amount { color: var(--white); }
+  .fee-card p { color: rgba(255,255,255,.7); font-size: .9rem; margin-top: .5rem; }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    align-items: start; margin-top: 3rem;
+  }
+  .contact-info-item {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    margin-bottom: 1.75rem;
+  }
+  .ci-icon {
+    width: 48px; height: 48px; border-radius: 14px;
+    background: var(--navy); color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .ci-text strong { display: block; color: var(--navy); font-size: 1rem; margin-bottom: .25rem; }
+  .ci-text span { color: #555; font-size: .95rem; line-height: 1.5; }
+
+  .enroll-form {
+    background: var(--light); border-radius: 20px; padding: 2.5rem;
+  }
+  .enroll-form h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--navy); font-size: 1.5rem; margin-bottom: 1.5rem;
+  }
+  .form-group { margin-bottom: 1.1rem; }
+  .form-group label {
+    display: block; font-weight: 700; font-size: .85rem;
+    color: var(--navy); margin-bottom: .35rem;
+  }
+  .form-group input,
+  .form-group select {
+    width: 100%; padding: .75rem 1rem;
+    border: 2px solid #dde4f0; border-radius: 10px;
+    font-family: 'Nunito', sans-serif; font-size: .95rem;
+    color: var(--dark);
+    transition: border-color .2s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus { border-color: var(--sky); }
+  .form-submit {
+    width: 100%; padding: .95rem;
+    background: var(--navy); color: var(--gold);
+    border: none; border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800; font-size: 1rem; cursor: pointer;
+    transition: background .2s, transform .15s;
+    margin-top: .5rem;
+  }
+  .form-submit:hover { background: var(--sky); transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,.6);
+    padding: 2.5rem; text-align: center; font-size: .9rem;
+  }
+  footer strong { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .grades-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+  }
+
+  /* success msg */
+  .success-msg {
+    display: none;
+    background: var(--green); color: var(--white);
+    padding: 1rem; border-radius: 10px;
+    text-align: center; font-weight: 700; margin-top: 1rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">🌅</div>
+    <div class="nav-name">Sunrise Christian School<span>Kadoma, Zimbabwe</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#why">About</a>
+    <a href="#grades">Classes</a>
+    <a href="#fees">Fees</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Enroll 2026</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-badge">🌟 Enrolling for 2026</span>
+      <h1>Where Every Child <em>Shines</em> Brighter</h1>
+      <p class="hero-sub">A nurturing Christian environment in Kadoma where qualified teachers, sport, and English-language learning come together to grow confident, capable young minds.</p>
+      <ul class="hero-checks">
+        <li>Qualified, caring teachers</li>
+        <li>Sports & games programme</li>
+        <li>100% English speaking environment</li>
+        <li>Transport available</li>
+      </ul>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Enroll Now</a>
+        <a href="#fees" class="btn-outline">View Fees</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="enroll-year">2026</div>
+      <div class="enroll-label">ENROLL</div>
+      <div class="enroll-now">now open!</div>
+
+      <div class="fee-row fee-reg">
+        <span>Registration</span>
+        <span class="amount">$5.00</span>
+      </div>
+      <div class="fee-row fee-term">
+        <span>📚 Fees per Term</span>
+        <span class="amount">$40.00</span>
+      </div>
+      <div class="fee-row fee-transport">
+        <span>🚌 Transport</span>
+        <span class="amount">Available</span>
+      </div>
+
+      <div class="grade-tags">
+        <span class="grade-tag">Toddlers</span>
+        <span class="grade-tag">ECD A</span>
+        <span class="grade-tag">ECD B</span>
+        <span class="grade-tag">Grade 1</span>
+        <span class="grade-tag">Grade 2</span>
+        <span class="grade-tag">Grade 3</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="section-inner">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">A Foundation Built on Faith, Excellence & Care</h2>
+    <p class="section-desc">At Sunrise Christian School we believe every child deserves a safe, inspiring environment where they can grow academically, spiritually, and socially.</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">👩‍🏫</div>
+        <h3>Qualified Teachers</h3>
+        <p>Our professional educators bring expertise and a genuine passion for childhood development to every lesson.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏃</div>
+        <h3>Sports & Games</h3>
+        <p>Physical activity is a core part of our programme – keeping children healthy, social, and energised for learning.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🗣️</div>
+        <h3>English Environment</h3>
+        <p>Full English immersion from day one builds fluency, confidence, and communication skills for life.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✝️</div>
+        <h3>Christian Values</h3>
+        <p>We embed integrity, kindness, and purpose into everything we do, raising children of strong character.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚌</div>
+        <h3>Transport Available</h3>
+        <p>Safe and reliable school transport to give families peace of mind every morning and afternoon.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <h3>Affordable Fees</h3>
+        <p>Quality education at only $40 per term, making excellence accessible to every family in Kadoma.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRADES -->
+<section id="grades">
+  <div class="section-inner">
+    <div class="section-label">Classes Offered</div>
+    <h2 class="section-title">Learning Levels for Every Stage</h2>
+    <p class="section-desc">From the very first steps to primary school readiness, we have the right class for your child.</p>
+
+    <div class="grades-grid">
+      <div class="grade-card toddlers">
+        <div class="gc-icon">🍼</div>
+        <h3>Toddlers</h3>
+        <p>Playful early learning focused on sensory exploration, language, and social skills for our youngest learners.</p>
+      </div>
+      <div class="grade-card ecd">
+        <div class="gc-icon">🎒</div>
+        <h3>ECD A & B</h3>
+        <p>Early Childhood Development classes building literacy, numeracy, and school readiness in a structured, caring space.</p>
+      </div>
+      <div class="grade-card primary">
+        <div class="gc-icon">📖</div>
+        <h3>Grade 1 – 3</h3>
+        <p>Primary school classes delivering the full curriculum with high standards, dedicated teachers, and real results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEES -->
+<section class="fees-bg" id="fees">
+  <div class="section-inner">
+    <div class="section-label">School Fees</div>
+    <h2 class="section-title">Transparent & Affordable Pricing</h2>
+    <p class="section-desc">We believe quality education should be within every family's reach. Our fees are simple and all-inclusive.</p>
+
+    <div class="fees-cards">
+      <div class="fee-card reg">
+        <div class="fc-icon">📋</div>
+        <h3>Registration Fee</h3>
+        <div class="fc-amount">$5</div>
+        <p>One-time payment to secure your child's place for 2026.</p>
+      </div>
+      <div class="fee-card term">
+        <div class="fc-icon">📚</div>
+        <h3>School Fees</h3>
+        <div class="fc-amount">$40</div>
+        <p>Per term – covers tuition, materials and activities.</p>
+      </div>
+      <div class="fee-card transport">
+        <div class="fc-icon">🚌</div>
+        <h3>Transport</h3>
+        <div class="fc-amount">Available</div>
+        <p>Safe school transport – contact us for pricing and routes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Visit Us or Send an Enquiry</h2>
+
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info-item">
+          <div class="ci-icon">📍</div>
+          <div class="ci-text">
+            <strong>Our Location</strong>
+            <span>Stand No. 359, Craft Stands<br>Kadoma, Zimbabwe</span>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon">📞</div>
+          <div class="ci-text">
+            <strong>Call Us</strong>
+            <span>078 5 845 730<br>078 0 607 767</span>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon">🕐</div>
+          <div class="ci-text">
+            <strong>Office Hours</strong>
+            <span>Monday – Friday<br>7:00 AM – 4:00 PM</span>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon">✝️</div>
+          <div class="ci-text">
+            <strong>Our Mission</strong>
+            <span>"Let your light shine" – we are committed to raising the next generation with purpose, faith and excellence.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="enroll-form">
+        <h3>Enquire About Enrollment</h3>
+        <div class="form-group">
+          <label>Parent / Guardian Name</label>
+          <input type="text" placeholder="Full name" id="pname">
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="07X XXX XXXX" id="phone">
+        </div>
+        <div class="form-group">
+          <label>Child's Name</label>
+          <input type="text" placeholder="Child's full name" id="cname">
+        </div>
+        <div class="form-group">
+          <label>Class Interested In</label>
+          <select id="grade">
+            <option value="">Select a class…</option>
+            <option>Toddlers</option>
+            <option>ECD A</option>
+            <option>ECD B</option>
+            <option>Grade 1</option>
+            <option>Grade 2</option>
+            <option>Grade 3</option>
+          </select>
+        </div>
+        <button class="form-submit" onclick="submitForm()">Send Enquiry 🌅</button>
+        <div class="success-msg" id="successMsg">
+          ✅ Thank you! We'll be in touch very soon.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <strong>Sunrise Christian School</strong> · Stand No. 359, Craft Stands, Kadoma, Zimbabwe</p>
+  <p style="margin-top:.5rem">📞 078 5 845 730 &nbsp;|&nbsp; 078 0 607 767</p>
+</footer>
+
+<script>
+  function submitForm() {
+    const p = document.getElementById('pname').value.trim();
+    const ph = document.getElementById('phone').value.trim();
+    const c = document.getElementById('cname').value.trim();
+    const g = document.getElementById('grade').value;
+    if (!p || !ph || !c || !g) {
+      alert('Please fill in all fields before sending.');
+      return;
+    }
+    document.getElementById('successMsg').style.display = 'block';
+    document.getElementById('pname').value = '';
+    document.getElementById('phone').value = '';
+    document.getElementById('cname').value = '';
+    document.getElementById('grade').value = '';
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.feature-card, .grade-card, .fee-card, .contact-info-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity .6s ease, transform .6s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
